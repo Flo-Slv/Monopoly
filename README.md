@@ -1,3 +1,31 @@
+# Documentation
+
+#### Initialisation du project et installation des dependances
+```sh
+npx create-next-app next-graphql
+```
+```sh
+npm i graphql @apollo/client apollo-server-micro mongoose
+```
+<br />
+
+#### Creation de la structure et des fichiers necessaires
+Dossier `backend` a la racine.
+
+A l'interieur du dossier `backend` :
+- backend/graphql/resolvers/index.js
+- backend/graphql/mutations/
+- backend/graphql/queries/
+- backend/graphql/typeDefs.js
+- backend/models/
+- backend/utils/
+
+Supprimer le dossier `api/hello.js`.
+<br /><br /><br />
+
+---
+<br />
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
