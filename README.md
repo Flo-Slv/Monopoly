@@ -5,12 +5,22 @@
 npx create-next-app next-graphql
 ```
 ```sh
-npm i graphql @apollo/client apollo-server-micro
+npm i graphql @apollo/client apollo-server-micro dotenv mongoose
 ```
 <br />
 
-#### Creation de la structure et des fichiers necessaires<br />
-Dossier 'backend' a la racine
+#### Creation de la structure et des fichiers necessaires
+Dossier `backend` a la racine.
+
+A l'interieur du dossier `backend` :
+- backend/graphql/resolvers/index.js
+- backend/graphql/mutations/
+- backend/graphql/queries/
+- backend/graphql/typeDefs.js
+- backend/models/
+- backend/utils/
+
+Supprimer le dossier `api/hello.js`.
 <br /><br /><br />
 
 ---
