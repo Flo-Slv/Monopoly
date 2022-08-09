@@ -1,4 +1,18 @@
 # Documentation
+```sh
+git clone https://github.com/Flo-Slv/next-graphql.git Monopoly
+
+cd Monopoly
+
+npm install
+
+npm run dev
+```
+<br /><br />
+
+---
+
+<br /><br />
 
 #### Initialisation du project et installation des dependances
 ```sh
@@ -25,7 +39,7 @@ Supprimer le dossier `api/hello.js`.
 <br /><br /><br />
 
 ---
-<br />
+<br /><br />
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
