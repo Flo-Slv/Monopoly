@@ -15,6 +15,7 @@ npm run dev
 <br /><br />
 
 #### Initialisation du project et installation des dependances
+A titre d'information, voici la facon dont le projet a ete cree
 ```sh
 npx create-next-app next-graphql
 ```
