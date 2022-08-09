@@ -11,6 +11,7 @@ npm install
 ```sh
 npm run dev
 ```
+Se rendre sur `http://localhost:3000`
 <br /><br />
 
 ---
