@@ -5,7 +5,6 @@ const typeDefs = gql`
 		id: ID!
 		username: String!
 		email: String!
-		token: String!
 		avatar_url: String!
 		created_at: String!
 	}
