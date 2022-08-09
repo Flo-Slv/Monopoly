@@ -35,7 +35,7 @@ A l'interieur du dossier `backend` :
 - backend/db/config/
 - backend/utils/
 
-Supprimer le dossier `api/hello.js`.
+Supprimer le fichier `api/hello.js` et creer un fichier `api/graphql.js`.
 <br /><br /><br />
 
 ---
