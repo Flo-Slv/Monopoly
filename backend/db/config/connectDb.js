@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import { MONGODB } from '../../utils/config.js';
+import { MONGODB } from '../../../.env.local';
 
 const connectDb = () => {
 	try {
