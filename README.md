@@ -5,7 +5,7 @@
 npx create-next-app next-graphql
 ```
 ```sh
-npm i graphql @apollo/client apollo-server-micro dotenv mongoose
+npm i graphql @apollo/client apollo-server-micro mongoose
 ```
 <br />
 
