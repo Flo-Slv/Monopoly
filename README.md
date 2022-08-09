@@ -1,11 +1,14 @@
 # Documentation
 ```sh
 git clone https://github.com/Flo-Slv/next-graphql.git Monopoly
-
+```
+```sh
 cd Monopoly
-
+```
+```sh
 npm install
-
+```
+```sh
 npm run dev
 ```
 <br /><br />
