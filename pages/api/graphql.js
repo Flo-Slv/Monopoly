@@ -28,4 +28,4 @@ const handler = async (req, res) => {
 	apolloServer.createHandler({ path: '/api/graphql' })(req, res);
 };
 
-export default cors(handler);
+export default handler;
