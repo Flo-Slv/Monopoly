@@ -1,3 +1,17 @@
+# FLO doc
+Initialisation du project et installation des dependances
+```sh
+npx create-next-app next-graphql
+```
+```sh
+npm i graphql @apollo/client
+```
+<br />
+
+Creation de la structure et des fichiers necessaires<br />
+Dossier 'backend' a la racine
+<br /><br /><br />
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
