@@ -13,11 +13,12 @@ npm i graphql @apollo/client apollo-server-micro mongoose
 Dossier `backend` a la racine.
 
 A l'interieur du dossier `backend` :
-- backend/graphql/resolvers/index.js
+- backend/graphql/resolvers/
 - backend/graphql/mutations/
 - backend/graphql/queries/
 - backend/graphql/typeDefs.js
-- backend/models/
+- backend/db/models/
+- backend/db/config/
 - backend/utils/
 
 Supprimer le dossier `api/hello.js`.
