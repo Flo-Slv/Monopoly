@@ -12,8 +12,8 @@ connectDb();
 // Graphql
 const apolloServer = new ApolloServer({
 	typeDefs,
-	resolvers
-	// context: ({ req }) => ({ req }) // let's see if needed ?
+	resolvers,
+	context: ({ req }) => ({ req }) // let's see if needed ?
 });
 
 // Next config
