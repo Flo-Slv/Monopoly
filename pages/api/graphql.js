@@ -1,4 +1,5 @@
 import { ApolloServer } from 'apollo-server-micro';
+import micro_cors from 'micro-cors';
 
 import typeDefs from '../../backend/graphql/typeDefs.js';
 import resolvers from '../../backend/graphql/resolvers/index.js';
@@ -22,10 +23,24 @@ export const config = {
 	}
 };
 
+// CORS
+const cors = micro_cors({
+	origin: "https://studio.apollographql.com",
+	allowCredentials: true,
+	allowMethods: ["GET", "POST","PUT","DELETE"],
+	allowHeaders: ["access-control-allow-credentials","access-control-allow-origin","content-type"]          
+});
+
 // Run server
-const handler = async (req, res) => {
+const handler = cors(async (req, res) => {
 	await apolloServer.start();
-	apolloServer.createHandler({ path: '/api/graphql' })(req, res);
-};
+
+	if (req.method === "OPTIONS") {
+		res.end();
+		return false;
+	}
+
+	await apolloServer.createHandler({ path: '/api/graphql' })(req, res);
+});
 
 export default handler;
