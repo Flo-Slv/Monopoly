@@ -1,6 +1,6 @@
 const registerMutation = async args => {
 	const {
-		registerInput: { username, email, password, confirmPassword }
+		registerInput: { username, email }
 	} = args;
 
 	return { };
