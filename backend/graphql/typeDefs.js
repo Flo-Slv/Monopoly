@@ -10,15 +10,11 @@ const typeDefs = gql`
 	}
 
 	input RegisterInput {
-		username: String!
 		email: String!
-		password: String!
-		confirm_password: String!
 	}
 	
 	input LoginInput {
 		email: String!
-		password: String!
 	}
 
 	type Query {
