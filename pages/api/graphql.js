@@ -26,7 +26,6 @@ export const config = {
 // CORS
 const cors = micro_cors({
 	origin: 'https://studio.apollographql.com',
-	// origin: '*',
 	allowCredentials: true,
 	allowMethods: ['GET', 'POST','PUT','DELETE'],
 	allowHeaders: ['access-control-allow-credentials', 'access-control-allow-origin', 'content-type']          
