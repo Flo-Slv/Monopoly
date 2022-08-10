@@ -1,6 +1,6 @@
 # Documentation
 ```sh
-git clone https://github.com/Flo-Slv/next-graphql.git Monopoly
+git clone https://github.com/Flo-Slv/Monopoly.git Monopoly
 ```
 ```sh
 cd Monopoly
