@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const { model, Schema } = mongoose;
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
 	email: {
@@ -18,6 +18,4 @@ const userSchema = new Schema({
 	urlAvatar: String
 });
 
-const User = model('User', userSchema);
-
-export default User;
+export default mongoose.models.User || mongoose.model('User', userSchema);
