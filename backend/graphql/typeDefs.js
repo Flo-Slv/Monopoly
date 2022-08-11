@@ -5,8 +5,8 @@ const typeDefs = gql`
 		id: ID!
 		username: String!
 		email: String!
-		urlAvatar: String!
 		createdAt: String!
+		urlAvatar: String
 	}
 
 	input RegisterInput {

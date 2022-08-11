@@ -3,9 +3,18 @@ import mongoose from 'mongoose';
 const { model, Schema } = mongoose;
 
 const userSchema = new Schema({
-	email: String,
-	username: String,
-	createdAt: String,
+	email: {
+		type: String,
+		required: Boolean(true)
+	},
+	username: {
+		type: String,
+		required: Boolean(true)
+	},
+	createdAt: {
+		type: String,
+		required: Boolean(true)
+	},
 	urlAvatar: String
 });
 
