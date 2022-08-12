@@ -11,38 +11,38 @@ connectDb();
 
 // Graphql
 const apolloServer = new ApolloServer({
-	typeDefs,
-	resolvers,
-	context: ({ req }) => ({ req }) // let's see if needed ?
+  typeDefs,
+  resolvers,
+  context: ({ req }) => ({ req }) // let's see if needed ?
 });
 
 // Next config
 export const config = {
-	api: {
-		bodyParser: Boolean(false),
-	}
+  api: {
+    bodyParser: Boolean(false),
+  }
 };
 
 // CORS
 const cors = micro_cors({
-	origin: 'https://studio.apollographql.com',
-	allowCredentials: true,
-	allowMethods: ['GET', 'POST','PUT','DELETE'],
-	allowHeaders: ['access-control-allow-credentials', 'access-control-allow-origin', 'content-type']          
+  origin: 'https://studio.apollographql.com',
+  allowCredentials: true,
+  allowMethods: ['GET', 'POST','PUT','DELETE'],
+  allowHeaders: ['access-control-allow-credentials', 'access-control-allow-origin', 'content-type']          
 });
 
-const startServer = apolloServer.start()
+const startServer = apolloServer.start();
 
 // Run server
 const handler = cors(async (req, res) => {
-	await startServer;
+  await startServer;
 
-	if (req.method === 'OPTIONS') {
-		res.end();
-		return false;
-	}
+  if (req.method === 'OPTIONS') {
+    res.end();
+    return false;
+  }
 
-	await apolloServer.createHandler({ path: '/api/graphql' })(req, res);
+  await apolloServer.createHandler({ path: '/api/graphql' })(req, res);
 });
 
 export default handler;

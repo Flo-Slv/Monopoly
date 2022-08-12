@@ -3,6 +3,13 @@
   min-height: 100vh;
 }
 
+/* this class fix nextjs Image error */
+.authBackground{
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
 .authForm {
   position: absolute;
   z-index: 1000;
