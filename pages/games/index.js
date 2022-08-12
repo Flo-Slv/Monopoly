@@ -1,3 +1,8 @@
+import Header from '../../components/auth/header';
+
 export default function Home() {
-  return <div>Parties</div>;
+  return <div>
+    <Header/>
+    Parties
+  </div>;
 }

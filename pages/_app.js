@@ -9,11 +9,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <SessionProvider session={session}>
       <Head>
         <title>Monopoly (coding project)</title>
-        <meta
-          name="description"
-          content="Monopoly online game - Final project of MikeCodeur's bootcamp August/September 2022"
-        />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
     </SessionProvider>
