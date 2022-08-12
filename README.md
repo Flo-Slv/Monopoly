@@ -1,19 +1,5 @@
 # Documentation
-```sh
-git clone https://github.com/Flo-Slv/next-graphql.git Monopoly
-```
-```sh
-cd Monopoly
-```
-```sh
-npm install
-```
-```sh
-npm run dev
-```
-Se rendre sur <a href='http://localhost:3000'>http://localhost:3000</a>
-<br /><br />
-
+See <a href='https://github.com/Flo-Slv/Monopoly/wiki'>Wiki</a>
 ---
 <br />
 

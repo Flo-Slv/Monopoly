@@ -1,6 +1,8 @@
+import User from '../../../db/models/User.js';
+
 const registerMutation = async args => {
 	const {
-		registerInput: { username, email, password, confirmPassword }
+		registerInput: { username, email }
 	} = args;
 
 	return { };
