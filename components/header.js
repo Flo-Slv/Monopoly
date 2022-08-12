@@ -19,7 +19,7 @@ export default function Header() {
           href={`/api/auth/signout`}
           onClick={e => {
             e.preventDefault()
-            signOut()
+            signOut({ callbackUrl: "/" })
           }}
         >
           Se déconnecter

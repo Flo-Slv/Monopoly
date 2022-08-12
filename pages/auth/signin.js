@@ -15,7 +15,7 @@ export default function SignIn({ providers }) {
         <h2>Démarrer une partie</h2>
         {Object.values(providers).map(provider => (
           <div key={provider.name}>
-            <Button onClick={() => signIn(provider.id, { callbackUrl: "http://localhost:3000/" })} variant="contained">
+            <Button onClick={() => signIn(provider.id, { callbackUrl: "/games" })} variant="contained">
               Sign in with {provider.name}
             </Button>
           </div>
