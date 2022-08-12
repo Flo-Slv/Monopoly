@@ -16,7 +16,7 @@ export default function SignIn({ providers, signInFunc }) {
         {Object.values(providers).map((provider) => (
           <div key={provider.name}>
             <Button
-              onClick={() => signInFunc(provider.id, { callbackUrl: 'http://localhost:3000/' })}
+              onClick={() => signInFunc(provider.id, { callbackUrl: '/games' })}
               variant="contained"
             >
               Sign in with {provider.name}

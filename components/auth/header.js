@@ -1,15 +1,15 @@
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Header() {
-  const { data: session, status } = useSession()
+  const { data: session, status } = useSession();
   return (
     <nav>
       {!session?.user ? (
         <a
           href={`/api/auth/signin`}
           onClick={e => {
-            e.preventDefault()
-            signIn()
+            e.preventDefault();
+            signIn();
           }}
         >
           Se connecter
@@ -18,13 +18,13 @@ export default function Header() {
         <a
           href={`/api/auth/signout`}
           onClick={e => {
-            e.preventDefault()
-            signOut({ callbackUrl: "/" })
+            e.preventDefault();
+            signOut({ callbackUrl: "/" });
           }}
         >
           Se déconnecter
         </a>
       )}
     </nav>
-  )
+  );
 }
