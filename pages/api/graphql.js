@@ -13,7 +13,7 @@ connectDb();
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({ req }) => ({ req }), // let's see if needed ? // YES I NEED IT ! (Marie)
+  context: async ({ req }) => ({ req }), // let's see if needed ? // Yes i need it (auth) ! (Marie)
 });
 
 // Next config
