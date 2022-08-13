@@ -28,6 +28,7 @@ const typeDefs = gql`
 	type Query {
 		getUsers: [User]
 		getUser(email: String!): User!
+		getMe: User!
 		getGamesHistory: [GameHistory]
 	}
 	
