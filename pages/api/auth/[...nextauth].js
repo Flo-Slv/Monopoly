@@ -26,8 +26,9 @@ export default NextAuth({
       if (account) {
         // connection
         await connectDb();
-        const loggedInUser = await loginMutation({loginInput:{email:user.email}});
-        token.idUser=loggedInUser._id;
+        const result = await loginMutation({loginInput:{email:user.email,username:user.name,urlAvatar:user.image}});
+        token.idUser=result.user._id;
+     
       } else {
         // checking session
       }

@@ -13,22 +13,22 @@ connectDb();
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({ req }) => ({ req }) // let's see if needed ?
+  context: ({ req }) => ({ req }), // let's see if needed ? // YES I NEED IT ! (Marie)
 });
 
 // Next config
 export const config = {
   api: {
     bodyParser: Boolean(false),
-  }
+  },
 };
 
 // CORS
 const cors = micro_cors({
   origin: 'https://studio.apollographql.com',
   allowCredentials: true,
-  allowMethods: ['GET', 'POST','PUT','DELETE'],
-  allowHeaders: ['access-control-allow-credentials', 'access-control-allow-origin', 'content-type']          
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowHeaders: ['access-control-allow-credentials', 'access-control-allow-origin', 'content-type'],
 });
 
 const startServer = apolloServer.start();
