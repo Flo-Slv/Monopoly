@@ -1,7 +1,7 @@
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import getUserQuery from "../../../backend/graphql/queries/user/getUserQuery";
-import loginMutation from "../../../backend/graphql/mutations/user/loginMutation";
+import NextAuth from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
+import getUserQuery from '../../../backend/graphql/queries/user/getUserQuery';
+import loginMutation from '../../../backend/graphql/mutations/user/loginMutation';
 import connectDb from '../../../backend/db/config/connectDb.js';
 
 export default NextAuth({
@@ -15,10 +15,10 @@ export default NextAuth({
   ],
 
   pages: {
-    signIn: "/auth/signin",
+    signIn: '/auth/signin',
     // signOut: "/auth/signout",
     // error: "/auth/error", // Error code passed in query string as ?error=
-    newUser: "/auth/new-user", // New users will be directed here on first sign in (leave the property out if not of interest)
+    newUser: '/auth/new-user', // New users will be directed here on first sign in (leave the property out if not of interest)
   },
 
   callbacks: {
@@ -26,16 +26,15 @@ export default NextAuth({
       if (account) {
         // connection
         await connectDb();
-        const result = await loginMutation({loginInput:{email:user.email,username:user.name,urlAvatar:user.image}});
-        token.idUser=result.user._id;
-     
+        const result = await loginMutation({
+          loginInput: { email: user.email, username: user.name, urlAvatar: user.image },
+        });
+        token.idUser = result.user._id;
       } else {
         // checking session
       }
 
       return token;
-    }
-  }
-
-
+    },
+  },
 });
