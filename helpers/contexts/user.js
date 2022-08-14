@@ -1,38 +1,29 @@
-import {
-  useContext,
-  createContext,
-  useReducer,
-  useCallback,
-  useMemo,
-} from "react";
-  
+import { useContext, createContext, useReducer, useCallback, useMemo } from 'react';
+
 const UserContext = createContext();
-  
+
 const actionTypes = {
-  setUsername: "setUsername",
-  setUrlAvatar: "setUrlAvatar",
+  setUsername: 'setUsername',
+  setUser: 'setUser',
 };
-  
+
 const reducer = (state, action) => {
   switch (action.type) {
-  case actionTypes.setUsername:
-    return {
-      ...state,
-      username: action.payload.username,
-    };
-  case actionTypes.setUrlAvatar:
-    return {
-      ...state,
-      series: action.payload.urlAvatar,
-    };
-  default:
-    throw new Error("Action non supportée");
+    case actionTypes.setUsername:
+      return {
+        ...state,
+        username: action.payload.username,
+      };
+    case actionTypes.setUser:
+      return action.payload.user;
+    default:
+      throw new Error('Action non supportée');
   }
 };
-  
-export const GlobalProvider = (props) => {
+
+export const UserProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, {});
-  
+
   const setUsername = useCallback((username) => {
     dispatch({
       type: actionTypes.setUsername,
@@ -40,35 +31,33 @@ export const GlobalProvider = (props) => {
     });
   }, []);
 
-  const setUrlAvatar = useCallback((urlAvatar) => {
+  const setUser = useCallback((user) => {
     dispatch({
-      type: actionTypes.setUrlAvatar,
-      payload: { urlAvatar },
+      type: actionTypes.setUser,
+      payload: { user },
     });
   }, []);
-  
+
   const { idUser, username, email, urlAvatar } = state;
-  
+
   const value = useMemo(() => {
     return {
-      idUser, username, email, urlAvatar,
+      idUser,
+      username,
+      email,
+      urlAvatar,
       setUsername,
-      setUrlAvatar,
+      setUser,
     };
-  }, [
-    idUser, username, email, urlAvatar,
-    setUsername,
-    setUrlAvatar,
-  ]);
-  
+  }, [idUser, username, email, urlAvatar, setUsername, setUser]);
+
   return <UserContext.Provider value={value} {...props} />;
 };
-  
+
 export const useUser = () => {
   const context = useContext(UserContext);
   if (!context) {
-    throw new Error("useGlobal doit etre dans GlobalProvider");
+    throw new Error('useUser doit etre dans UserProvider');
   }
   return context;
 };
-  
