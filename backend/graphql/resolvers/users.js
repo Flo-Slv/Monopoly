@@ -12,7 +12,7 @@ const usersResolvers = {
 		getUser: async (_, args) => {
 			return await getUserQuery(args);
 		},
-		getMe: async (_, args, context) => {
+		getMe: async (_, __, context) => {
 			return await getMeQuery(context);
 		}
 	},

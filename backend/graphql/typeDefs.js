@@ -13,7 +13,7 @@ const typeDefs = gql`
 		id: ID!
 		username: String!
 		email: String!
-		createdAt: String!
+		createdAt: String
 		urlAvatar: String
 	}
 
