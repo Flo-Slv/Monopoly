@@ -17,10 +17,6 @@ const typeDefs = gql`
 		urlAvatar: String
 	}
 
-	input RegisterInput {
-		email: String!
-	}
-	
 	input LoginInput {
 		email: String!
 	}
@@ -33,7 +29,6 @@ const typeDefs = gql`
 	}
 	
 	type Mutation {
-		register(registerInput: RegisterInput): User!
 		login(loginInput: LoginInput): User!
 	}
 `;
