@@ -25,7 +25,7 @@ export default NextAuth({
     async jwt({ token, user, account, profile, isNewUser }) {
       if (account) {
         // connection
-        await connectDb();
+        connectDb();
         const result = await loginMutation({
           loginInput: { email: user.email, username: user.name, urlAvatar: user.image },
         });
