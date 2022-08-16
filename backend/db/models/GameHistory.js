@@ -3,11 +3,15 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const historySchema = new Schema({
-	attendees: [
-		{ id: String, username: String, urlAvatar: String }
-	],
+	attendees: [{
+		id: String,
+		email: String,
+		username: String,
+		urlAvatar: String
+	}],
 	winner: {
 		id: String,
+		email: String,
 		username: String,
 		urlAvatar: String
 	},
