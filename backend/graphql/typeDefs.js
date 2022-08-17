@@ -8,6 +8,15 @@ const typeDefs = gql`
 		startTime: String!
 		endTime: String!
 	}
+	
+	type Resource {
+		id: ID!
+		startingMoney: Int
+		luckyCards: [String]
+		communityChestCards: [String]
+		nbHostels: Int
+		nbHouses: Int
+	}
 
 	type User {
 		id: ID!
@@ -22,10 +31,11 @@ const typeDefs = gql`
 	}
 
 	type Query {
-		getUsers: [User]
+		getUsers: [User!]
 		getUser(email: String!): User!
 		getMe: User!
-		getGamesHistory: [GameHistory]
+		getGamesHistory: [GameHistory!]
+		getResources: Resource!
 	}
 	
 	type Mutation {
