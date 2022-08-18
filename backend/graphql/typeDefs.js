@@ -8,32 +8,37 @@ const typeDefs = gql`
 		startTime: String!
 		endTime: String!
 	}
+	
+	type Resource {
+		id: ID!
+		startingMoney: Int
+		luckyCards: [String]
+		communityChestCards: [String]
+		nbHostels: Int
+		nbHouses: Int
+	}
 
 	type User {
 		id: ID!
 		username: String!
 		email: String!
-		createdAt: String!
+		createdAt: String
 		urlAvatar: String
 	}
 
-	input RegisterInput {
-		email: String!
-	}
-	
 	input LoginInput {
 		email: String!
 	}
 
 	type Query {
-		getUsers: [User]
+		getUsers: [User!]
 		getUser(email: String!): User!
 		getMe: User!
-		getGamesHistory: [GameHistory]
+		getGamesHistory: [GameHistory!]
+		getResources: Resource!
 	}
 	
 	type Mutation {
-		register(registerInput: RegisterInput): User!
 		login(loginInput: LoginInput): User!
 	}
 `;
