@@ -4,12 +4,16 @@ const { Schema } = mongoose;
 
 const gameSchema = new Schema({
   // start with
+  createdAt: {
+    type: String,
+    required: Boolean(true),
+  },
   attendees: [
     {
       id: String,
       username: String,
       urlAvatar: String,
-      money: Number,
+      // money: Number,
     },
   ],
   chatbox: [
@@ -47,3 +51,4 @@ export default mongoose.models.Game || mongoose.model('Game', gameSchema);
 // TO DO
 // card sent to jail. other special cards ???
 // jail delay
+// money : n'est pas dans user de base, ça peut poser pb ? rajouter dans model user en non requis ? à vérif
