@@ -10,7 +10,7 @@ const getMeQuery = async (context) => {
     const token = await getToken({ req, secret });
 
     if (token?.idUser) {
-      return await User.findOne({ id: token.idUser });
+      return await User.findOne({ _id: token.idUser });
     } else {
       throw new Error('logged out user');
     }

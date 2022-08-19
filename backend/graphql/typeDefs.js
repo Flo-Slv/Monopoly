@@ -26,6 +26,7 @@ const typeDefs = gql`
     email: String!
     createdAt: String
     urlAvatar: String
+    currentGame: ID
   }
 
   type Game {
@@ -61,9 +62,9 @@ const typeDefs = gql`
     email: String!
   }
 
-  #   input AddGameInput {
-  #     createdAt: String!
-  #   }
+  input GameInput {
+    id: ID!
+  }
 
   type Query {
     getUsers: [User!]
@@ -77,7 +78,10 @@ const typeDefs = gql`
 
   type Mutation {
     login(loginInput: LoginInput): User!
-    addGame: Game
+    addGame: Game!
+    joinGame(id: ID!): Game!
+    leaveGame(gameInput: GameInput): Game!
+    launchGame(gameInput: GameInput): Game!
   }
 `;
 
