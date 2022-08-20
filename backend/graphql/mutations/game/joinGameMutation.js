@@ -17,20 +17,25 @@ const joinGameMutation = async (args, context) => {
       if (user.currentGame !== '-1') {
         // player already in another game
         const lastGame = await Game.findOne({ _id: user.currentGame });
-        lastGame.attendees = lastGame.attendees.filter((user) => user.id !== token.idUser);
-        if (lastGame.attendees.length < 1) {
-          // no player then delete game
-          Game.deleteOne({ _id: lastGame.id });
-        } else {
-          await lastGame.save();
+        if (lastGame != undefined) {
+          lastGame.attendees = lastGame.attendees.filter((u) => u._id.toString() !== user.id);
+          if (lastGame.attendees.length < 1) {
+            // no player then delete game
+            await Game.deleteOne({ _id: lastGame.id });
+          } else {
+            await lastGame.save();
+          }
         }
       }
 
-      game.attendees.push(user);
-      await game.save();
+      if (user.currentGame !== game.id) {
+        // player not already in this game then add him
+        game.attendees.push(user);
+        await game.save();
 
-      user.currentGame = game.id;
-      await user.save();
+        user.currentGame = game.id;
+        await user.save();
+      }
 
       return game;
     } else {

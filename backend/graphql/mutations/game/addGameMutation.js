@@ -12,12 +12,17 @@ const addGameMutation = async (context) => {
     if (token?.idUser) {
       const user = await User.findOne({ _id: token.idUser });
 
-      // player already in another game
       if (user.currentGame !== '-1') {
+        // player already in another game
         const lastGame = await Game.findOne({ _id: user.currentGame });
         if (lastGame != undefined) {
-          lastGame.attendees = lastGame.attendees.filter((user) => user.id !== token.idUser);
-          await lastGame.save();
+          lastGame.attendees = lastGame.attendees.filter((u) => u._id.toString() !== user.id);
+          if (lastGame.attendees.length < 1) {
+            // no player then delete game
+            await Game.deleteOne({ _id: lastGame.id });
+          } else {
+            await lastGame.save();
+          }
         }
       }
 
@@ -28,7 +33,7 @@ const addGameMutation = async (context) => {
       });
       await newGame.save();
 
-      user.currentGame = game;
+      user.currentGame = newGame.id;
       await user.save();
 
       return newGame;
