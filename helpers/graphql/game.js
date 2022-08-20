@@ -39,3 +39,27 @@ export const ADD_GAME = gql`
     }
   }
 `;
+
+export const JOIN_GAME = gql`
+  mutation JoinGame($id: ID!) {
+    joinGame(id: $id) {
+      createdAt
+    }
+  }
+`;
+
+export const LEAVE_GAME = gql`
+  mutation LeaveGame($id: ID!) {
+    leaveGame(id: $id) {
+      createdAt
+    }
+  }
+`;
+
+export const LAUNCH_GAME = gql`
+  mutation LaunchGame($id: ID!) {
+    launchGame(id: $id) {
+      createdAt
+    }
+  }
+`;

@@ -17,8 +17,8 @@ const loginMutation = async (args) => {
       username: username,
       createdAt: new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' }),
       urlAvatar: urlAvatar,
+      currentGame: '-1',
     });
-
     try {
       await newUser.save();
       return { user: newUser, isNew: Boolean(true) };
