@@ -4,7 +4,7 @@ import { getToken } from 'next-auth/jwt';
 
 const leaveGameMutation = async (args, context) => {
   const req = context.req;
-  const { idGame } = args;
+  const { id } = args;
 
   try {
     const secret = process.env.NEXTAUTH_SECRET;
@@ -12,9 +12,24 @@ const leaveGameMutation = async (args, context) => {
 
     if (token?.idUser) {
       const user = await User.findOne({ _id: token.idUser });
-      const game = await Game.findOne({ _id: idGame });
-      game.attendees = game.attendees.filter((user) => user.id !== token.idUser);
-      await game.save();
+      const game = await Game.findOne({ _id: id });
+
+      if (user.currentGame !== '-1') {
+        // player already in another game
+        const lastGame = await Game.findOne({ _id: user.currentGame });
+        if (lastGame != undefined) {
+          lastGame.attendees = lastGame.attendees.filter((u) => u._id.toString() !== user.id);
+          if (lastGame.attendees.length < 1) {
+            // no player then delete game
+            await Game.deleteOne({ _id: lastGame.id });
+          } else {
+            await lastGame.save();
+          }
+        }
+        user.currentGame = '-1';
+        await user.save();
+      }
+
       return game;
     } else {
       throw new Error('logged out user');
