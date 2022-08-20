@@ -2,6 +2,9 @@ import { useQuery } from '@apollo/client';
 import { GET_GAMES, JOIN_GAME } from '../../helpers/graphql/game';
 import { useMutation } from '@apollo/client';
 import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar';
+import Link from 'next/link';
+import styles from './games.module.css';
 
 export default function Games() {
   const { loading, error, data } = useQuery(GET_GAMES);
@@ -11,7 +14,11 @@ export default function Games() {
 
   return (
     <div>
-      Liste des parties
+      <h2>Liste des parties</h2>
+      <i>
+        Tout fonctionne correctement mais le rafraîchissement de la page n est pas encore géré :
+        plus tard avec des websockets pour quelque chose de fluides pour tous les joueurs
+      </i>
       {data.getGames.map((game) => (
         <Game key={game.id} game={game} />
       ))}
@@ -32,10 +39,26 @@ function Game({ game }) {
   };
   return (
     <div>
-      {game.id}--{game.createdAt}
+      Partie créée le : {game.createdAt}
+      {game.attendees.map((player) => (
+        <Player key={player.id} player={player} />
+      ))}
       <form onSubmit={handleSubmit}>
         <Button type="submit">Rejoindre la partie</Button>
       </form>
     </div>
+  );
+}
+
+function Player({ player }) {
+  return (
+    <Link href={`/profile/${player.id}`}>
+      <div className={styles.container}>
+        <Avatar alt={player.username} src={player.urlAvatar} sx={{ width: 25, height: 25 }} />
+        <div>
+          <div>{player.username}</div>
+        </div>
+      </div>
+    </Link>
   );
 }
