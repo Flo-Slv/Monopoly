@@ -80,8 +80,8 @@ const typeDefs = gql`
     login(loginInput: LoginInput): User!
     addGame: Game!
     joinGame(id: ID!): Game!
-    leaveGame(gameInput: GameInput): Game!
-    launchGame(gameInput: GameInput): Game!
+    leaveGame(id: ID!): Game!
+    launchGame(id: ID!): Game!
   }
 `;
 
