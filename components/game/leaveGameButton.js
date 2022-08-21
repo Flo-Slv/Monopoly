@@ -1,24 +1,20 @@
+import { LEAVE_GAME } from '../../helpers/graphql/game';
 import { useMutation } from '@apollo/client';
-import { ADD_GAME } from '../../helpers/graphql/game';
 import Button from '@mui/material/Button';
 
-export default function AddGame() {
-  const [addGame, { data, loading, error }] = useMutation(ADD_GAME);
+export default function LeaveGameButton({ game }) {
+  const [leaveGame, { data, loading, error }] = useMutation(LEAVE_GAME);
 
   if (loading) return 'Submitting...';
   if (error) return `Submission error! ${error.message}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('add game');
-    addGame();
+    leaveGame({ variables: { id: game.id } });
   };
-
   return (
     <form onSubmit={handleSubmit}>
-      <Button type="submit" variant="contained">
-        Créer une nouvelle partie
-      </Button>
+      <Button type="submit">Quitter la partie</Button>
     </form>
   );
 }
