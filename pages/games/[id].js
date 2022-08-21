@@ -1,9 +1,5 @@
-export default function Home() {
-  const [idRoom, setIdRoom] = useState(null);
-  const router = useRouter();
+import GameIndex from '../../components/game/gameIndex';
 
-  useEffect(() => {
-    setIdRoom(router.query.id);
-  }, [router.query]);
-  return <div>Bienvenue dans la partie id = {idRoom}</div>;
+export default function Home() {
+  return <GameIndex />;
 }

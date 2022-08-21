@@ -1,17 +1,19 @@
+import { useQuery } from '@apollo/client';
+import { GET_USER } from '../../helpers/graphql/queries/users/getUser';
 import Avatar from '@mui/material/Avatar';
-import Link from 'next/link';
 
-import styles from './user.module.css';
+export default function User({ id }) {
+  const { loading, error, data } = useQuery(GET_USER, {
+    variables: { _id: id },
+  });
 
-export default function User({ user }) {
-	return (
-		<Link href={`/profile/${user._id}`}>
-			<div className={styles.container}>
-				<Avatar alt={user.username} src={user.urlAvatar} sx={{ width: 25, height: 25 }} />
-				<div>
-					<div>{user.username}</div>
-				</div>
-			</div>
-		</Link>
-	);
+  if (loading) return 'Loading...';
+  if (error) return `Error: ${error.message}`;
+
+  return (
+    <>
+      <h2> Profil du joueur {data.getUser.username}</h2>
+      <Avatar alt={data.getUser.username} src={data.getUser.urlAvatar} />
+    </>
+  );
 }
