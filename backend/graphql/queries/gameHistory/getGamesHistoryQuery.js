@@ -1,6 +1,6 @@
 import GameHistory from '../../../db/models/GameHistory.js';
 
-const getGamesHistory = async () => {
+const getGamesHistoryQuery = async () => {
 	try {
 		// Find all games history by sorting startTime.
 		return await GameHistory.find().sort({ 'startTime': 'asc' });
@@ -10,4 +10,4 @@ const getGamesHistory = async () => {
 	}
 };
 
-export default getGamesHistory;
+export default getGamesHistoryQuery;

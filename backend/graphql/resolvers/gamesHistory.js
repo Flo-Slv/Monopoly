@@ -1,9 +1,9 @@
-import getGamesHistory from '../queries/gameHistory/getGamesHistory.js';
+import getGamesHistoryQuery from '../queries/gameHistory/getGamesHistoryQuery.js';
 
 const gamesHistoryResolvers = {
   Query: {
     getGamesHistory: async () => {
-      return await getGamesHistory();
+      return await getGamesHistoryQuery();
     }
   }
 };
