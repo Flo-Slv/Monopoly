@@ -1,11 +1,5 @@
-import Header from '../components/auth/header';
-import CrNextAppHome from '../components/cr-nxt-app-home/Home';
+import Games from './games/index';
 
 export default function Home() {
-  return (
-    <>
-      <Header />
-      <CrNextAppHome />
-    </>
-  );
+  return <Games />;
 }

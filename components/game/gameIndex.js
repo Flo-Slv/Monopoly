@@ -1,19 +1,16 @@
-import GameList from './gameList';
-import AddGameButton from '../../components/game/addGameButton';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Game from './game';
 
-const GameIndex = () => {
-	return (
-		<div>
-			<hr />
-			<AddGameButton />
-			<h2>Liste des parties</h2>
-			<i>
-				Tout fonctionne correctement mais le rafraîchissement de la page n est pas encore géré :
-				plus tard avec des websockets pour quelque chose de fluides pour tous les joueurs
-			</i>
-			<GameList />
-		</div>
-	);
-};
+export default function Home() {
+  const [idRoom, setIdRoom] = useState(null);
+  const router = useRouter();
 
-export default GameIndex;
+  useEffect(() => {
+    setIdRoom(router.query.id);
+  }, [router.query]);
+
+  if (!idRoom) return null;
+
+  return <Game id={idRoom} />;
+}

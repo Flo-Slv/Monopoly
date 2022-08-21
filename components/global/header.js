@@ -1,10 +1,18 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import styles from './header.module.css';
 
 export default function Header() {
   const { data: session, status } = useSession();
   return (
-    <nav>
+    <nav className={styles.container}>
+      Navigation :
+      <Link href="/">
+        <a>Accueil</a>
+      </Link>
+      <Link href="/users">
+        <a>Liste des utilisateurs</a>
+      </Link>
       {!session?.user ? (
         <Link href="/api/auth/signin">
           <a
