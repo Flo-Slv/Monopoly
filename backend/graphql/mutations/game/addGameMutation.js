@@ -28,7 +28,7 @@ const addGameMutation = async (context) => {
 
       const newGame = new Game({
         createdAt: new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' }),
-        attendees: [user],
+        attendees: [{ ...user, id: user.id.toString() }],
         chatbox: [],
       });
       await newGame.save();
