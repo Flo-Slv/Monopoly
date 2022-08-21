@@ -38,7 +38,7 @@ export const UserProvider = (props) => {
     });
   }, []);
 
-  const { idUser, username, email, urlAvatar, currentGame } = state;
+  const { idUser, username, email, urlAvatar, hasCurrentGame, currentGame } = state;
 
   const value = useMemo(() => {
     return {
@@ -46,11 +46,12 @@ export const UserProvider = (props) => {
       username,
       email,
       urlAvatar,
+			hasCurrentGame,
       currentGame,
       setUsername,
       setUser,
     };
-  }, [idUser, username, email, urlAvatar, currentGame, setUsername, setUser]);
+  }, [idUser, username, email, urlAvatar, hasCurrentGame, currentGame, setUsername, setUser]);
 
   return <UserContext.Provider value={value} {...props} />;
 };
