@@ -6,6 +6,7 @@ export const GET_GAMES = gql`
       id
       createdAt
       attendees {
+        id
         username
         urlAvatar
       }
