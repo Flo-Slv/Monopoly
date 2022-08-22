@@ -1,30 +1,25 @@
-import { useUser } from '../../helpers/contexts/user';
 import Link from 'next/link';
 
 import User from '../user/userListElement';
 
-import LeaveGameButton from './leaveGameButton';
-import JoinGameButton from './joinGameButton';
+import { GameActionButtons } from './gameActionButtons';
 
 const GameListElement = ({ game }) => {
-  const { currentGame } = useUser();
-
   return (
     <div>
       <hr />
-      ID : {game._id}{' '}
-      <Link href={`/games/${game._id}`}>
-        <a>Link</a>
-      </Link>
+      ID : {game._id}
       <br />
       Partie créée le : {game.createdAt}
       {game.attendees.map((user, index) => (
         <User key={index} user={user} />
       ))}
-      {currentGame && currentGame === game._id ? (
-        <LeaveGameButton game={game} />
+      {game.startTime ? (
+        <Link href={`/games/${game._id}`}>
+          <a>Partie en cours...</a>
+        </Link>
       ) : (
-        <JoinGameButton game={game} />
+        <GameActionButtons game={game} />
       )}
     </div>
   );

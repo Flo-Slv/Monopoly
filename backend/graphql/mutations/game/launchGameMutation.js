@@ -4,9 +4,15 @@ import { UserInputError } from 'apollo-server-micro';
 import Game from '../../../db/models/Game.js';
 import User from '../../../db/models/User.js';
 
+const initGame = async (game) => {
+  game.startTime = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
+  await game.save();
+  return game;
+};
+
 const launchGameMutation = async (args, context) => {
   const req = context.req;
-  const { idGame } = args;
+  const { _id } = args;
 
   try {
     const secret = process.env.NEXTAUTH_SECRET;
@@ -14,7 +20,7 @@ const launchGameMutation = async (args, context) => {
 
     if (token?.idUser) {
       const user = await User.findOne({ _id: token.idUser });
-      const game = await Game.findOne({ _id: idGame });
+      const game = await Game.findOne({ _id: _id });
 
       if (!user) {
         throw new UserInputError('user not found in DB', {
@@ -28,13 +34,11 @@ const launchGameMutation = async (args, context) => {
         });
       }
 
-      const found = game.attendees.find((user) => user.id === token.idUser);
+      const found = game.attendees.find((u) => u._id.toString() === token.idUser);
       if (found !== undefined) {
-        game.startTime = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
-        await game.save();
-        return game;
+        return await initGame(game);
       } else {
-        throw new Error('you need join this game before launch');
+        throw new Error('join this game before launch');
       }
     } else {
       throw new Error('logged out user');
