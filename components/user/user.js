@@ -1,10 +1,11 @@
 import { useQuery } from '@apollo/client';
-import { GET_USER } from '../../helpers/graphql/queries/users/getUser';
 import Avatar from '@mui/material/Avatar';
 
-export default function User({ id }) {
+import { GET_USER } from '../../helpers/graphql/queries/users/getUser';
+
+const User = ({ id }) => {
   const { loading, error, data } = useQuery(GET_USER, {
-    variables: { _id: id },
+    variables: { _id: id }
   });
 
   if (loading) return 'Loading...';
@@ -16,4 +17,6 @@ export default function User({ id }) {
       <Avatar alt={data.getUser.username} src={data.getUser.urlAvatar} />
     </>
   );
-}
+};
+
+export default User;
