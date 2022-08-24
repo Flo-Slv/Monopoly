@@ -1,8 +1,9 @@
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+
 import User from '../../components/user/user';
 
-export default function UserIndex() {
+const UserIndex = () => {
   const [idUser, setIdUser] = useState(null);
   const router = useRouter();
 
@@ -13,4 +14,6 @@ export default function UserIndex() {
   if (!idUser) return null;
 
   return <User id={idUser} />;
-}
+};
+
+export default UserIndex;

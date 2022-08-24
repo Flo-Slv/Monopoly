@@ -21,20 +21,20 @@ const reducer = (state, action) => {
   }
 };
 
-export const UserProvider = (props) => {
+export const UserProvider = props => {
   const [state, dispatch] = useReducer(reducer, {});
 
-  const setUsername = useCallback((username) => {
+  const setUsername = useCallback(username => {
     dispatch({
       type: actionTypes.setUsername,
-      payload: { username },
+      payload: { username }
     });
   }, []);
 
   const setUser = useCallback((user) => {
     dispatch({
       type: actionTypes.setUser,
-      payload: { user },
+      payload: { user }
     });
   }, []);
 
@@ -46,10 +46,10 @@ export const UserProvider = (props) => {
       username,
       email,
       urlAvatar,
-			hasCurrentGame,
+      hasCurrentGame,
       currentGame,
       setUsername,
-      setUser,
+      setUser
     };
   }, [idUser, username, email, urlAvatar, hasCurrentGame, currentGame, setUsername, setUser]);
 
@@ -58,6 +58,7 @@ export const UserProvider = (props) => {
 
 export const useUser = () => {
   const context = useContext(UserContext);
+
   if (!context) {
     throw new Error('useUser doit etre dans UserProvider');
   }
