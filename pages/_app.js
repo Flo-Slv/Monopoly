@@ -3,7 +3,6 @@ import { SessionProvider } from 'next-auth/react';
 import { ApolloClient, NormalizedCacheObject, ApolloProvider } from '@apollo/client';
 import { cache } from '../helpers/graphql/cache';
 import { UserProvider } from '../helpers/contexts/user';
-import Header from '../components/global/header';
 
 import '../styles/normalize.css';
 import '../styles/globals.css';
@@ -20,7 +19,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           <Head>
             <title>Monopoly (coding project)</title>
           </Head>
-          <Header />
           <Component {...pageProps} />
         </UserProvider>
       </ApolloProvider>
