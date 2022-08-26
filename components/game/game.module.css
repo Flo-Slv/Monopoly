@@ -16,7 +16,6 @@
 .title {
   background-color: cyan;
   position: relative;
-  min-height: 40px;
   display: flex;
   align-items: center;
 }
@@ -30,8 +29,8 @@
 .avatar {
   border: 3px solid red;
   border-radius: 50%;
-  height: 10px;
-  width: 10px;
+  height: 30px;
+  width: 30px;
 }
 
 .grid .chatbox {
@@ -39,6 +38,8 @@
   grid-row: 2 / 9;
   height: auto;
   border: 1px solid #000;
+  border-bottom: none;
+  border-left: none;
 }
 
 .grid .action {
@@ -46,6 +47,8 @@
   grid-row: 2 / 9;
   height: auto;
   border: 1px solid #000;
+  border-bottom: none;
+  border-right: none;
 }
 
 .grid .attendees {
@@ -53,4 +56,17 @@
   grid-row: 9 / 11;
   height: auto;
   border: 1px solid #000;
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attendees * {
+  margin: auto;
+  text-align: center;
+}
+
+.attendees .money {
+  font-style: italic;
 }

@@ -30,16 +30,15 @@ const gameSchema = new Schema({
   // generate after launch game
   squares: [
     {
-      id: String,
-      label: String,
-      type: String,
-      group: String,
+      label: { type: String },
+      type: { type: String },
+      group: { type: String },
       players: [{ id: String, username: String, urlAvatar: String }],
       owner: { id: String, username: String, urlAvatar: String },
-      nbHouses: Number,
-      nbHostels: Number,
-      mortgaged: Boolean,
-      monopoly: Boolean,
+      nbHouses: { type: Number },
+      nbHostels: { type: Number },
+      mortgaged: { type: Boolean },
+      monopoly: { type: Boolean },
     },
   ],
   startTime: String,

@@ -40,4 +40,5 @@ const COMMUNITY_CHEST_CARDS = [
   'Vous avez gagné le deuxième Prix de Beauté. Recevez: +10 euro',
   'Vous héritez: +100 euro',
 ];
+
 export { MONGODB, LUCKY_CARDS, COMMUNITY_CHEST_CARDS };
