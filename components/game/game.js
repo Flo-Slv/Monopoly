@@ -85,9 +85,6 @@ export default function Game({ id }) {
         <div className={styles.square}></div>
         <div className={styles.square}></div>
 
-        <div className={styles.backgroundDecoration}></div>
-      </div>
-      <div className={styles.grid2}>
         <div className={styles.action}>
           Zone d action où on affiche le résultat du dé, de la carte tirée etc
         </div>
