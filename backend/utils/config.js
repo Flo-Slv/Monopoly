@@ -5,11 +5,11 @@ const MONGODB = `mongodb+srv://FloSlv:${DB_PASSWORD}@flo.j1cmj.mongodb.net/${DB_
 
 const LUCKY_CARDS = [
   'Rendez-vous rue de la Paix',
-  `Avancer jusqu'à la case départ. Recevez 200 euro`,
-  `Rendez-vous à l'Avenue Henri-Martin. Si vous passez par la case départ, recevez 200 euro`,
-  'Avancez au Boulevard de La Villette. Si vous passez par la case départ, recevez 200 euro',
+  `Avancer jusqu'à la case départ. Recevez: +200 euro`,
+  `Rendez-vous à l'Avenue Henri-Martin. Si vous passez par la case départ, recevez: +200 euro`,
+  'Avancez au Boulevard de La Villette. Si vous passez par la case départ, recevez: +200 euro',
   'Vous êtes imposé pour les réparations de voirie à raison de: -40 euro par maison, -115 euro par hôtel',
-  `Avancez jusqu'à la Gare Montparnasse. Si vous passez par la case départ, recevez 200 euro`,
+  `Avancez jusqu'à la Gare Montparnasse. Si vous passez par la case départ, recevez: +200 euro`,
   'Vous avez gagné le prix de mots croisés. Recevez: +100 euro',
   'La banque vous verse un dividende: +50 euro',
   `Vous êtes libéré de prison. Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée ou vendue.`,
@@ -24,7 +24,7 @@ const LUCKY_CARDS = [
 
 const COMMUNITY_CHEST_CARDS = [
   'Rendez-vous rue de la Paix',
-  'Erreur de la banque en votre faveur. Recevez +200 euro',
+  'Erreur de la banque en votre faveur. Recevez: +200 euro',
   'Payez la note du médecin: -50 euro',
   'La vente de votre stock vous rapporte: +50 euro',
   `Vous êtes libéré de prison. Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée ou vendue.`,
@@ -36,7 +36,7 @@ const COMMUNITY_CHEST_CARDS = [
   `Recevez votre intérêt sur l’emprunt à 7%: +25 euro`,
   'Payez votre Police d’Assurance: -50 euro',
   'Payez une amende: -10 euro ou bien tirez une carte CHANCE',
-  'Rendez-vous à la gare la plus proche. Si vous passez par la case départ, recevez 200 euro',
+  'Rendez-vous à la gare la plus proche. Si vous passez par la case départ, recevez: +200 euro',
   'Vous avez gagné le deuxième Prix de Beauté. Recevez: +10 euro',
   'Vous héritez: +100 euro',
 ];

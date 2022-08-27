@@ -31,7 +31,7 @@ const cors = micro_cors({
   origin: 'https://studio.apollographql.com',
   allowCredentials: true,
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowHeaders: ['access-control-allow-credentials', 'access-control-allow-origin', 'content-type'],
+  allowHeaders: ['access-control-allow-credentials', 'access-control-allow-origin', 'content-type']
 });
 
 const startServer = apolloServer.start();
@@ -50,10 +50,10 @@ const handler = cors(async (req, res) => {
     if (count <= 0) {
       const newResources = new Resource({
         startingMoney: 1500,
-        luckyCards: LUCKY_CARDS,
+        luckyCards:  LUCKY_CARDS,
         communityChestCards: COMMUNITY_CHEST_CARDS,
         nbHostels: 12,
-        nbHouses: 12,
+        nbHouses: 12
       });
 
       try {
