@@ -3,13 +3,10 @@ const rollDiceRandomly = () => {
 };
 
 const shuffleCardsRandomly = cards => {
-  for (let i = cards.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-
-    [cards[i], cards[j]] = [cards[j], cards[i]];
-
-    return cards;
-  };
+  return cards
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
 };
 
 export { rollDiceRandomly, shuffleCardsRandomly };
