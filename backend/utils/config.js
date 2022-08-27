@@ -5,7 +5,7 @@ const MONGODB = `mongodb+srv://FloSlv:${DB_PASSWORD}@flo.j1cmj.mongodb.net/${DB_
 
 const LUCKY_CARDS = [
   'Rendez-vous rue de la Paix',
-  `Avancer jusqu'à la case départ. Recevez 200 euro`,
+  `Avancer jusqu'à la case départ. Recevez: +200 euro`,
   `Rendez-vous à l'Avenue Henri-Martin. Si vous passez par la case départ, recevez 200 euro`,
   'Avancez au Boulevard de La Villette. Si vous passez par la case départ, recevez 200 euro',
   'Vous êtes imposé pour les réparations de voirie à raison de: -40 euro par maison, -115 euro par hôtel',
