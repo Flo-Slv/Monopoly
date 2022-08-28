@@ -136,12 +136,14 @@
   bottom: -15px;
   right: 10px;
 } */
+.title {
+  text-align: center;
+}
 .property .title {
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .colLeft .colorBand,
