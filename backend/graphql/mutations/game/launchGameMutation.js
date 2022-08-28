@@ -5,7 +5,7 @@ import { SQUARES } from '../../../utils/config';
 import Game from '../../../db/models/Game';
 import User from '../../../db/models/User';
 
-const initGame = async (game) => {
+const initGame = async game => {
   game.startTime = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
   game.squares = SQUARES;
   game.squares[1].owner = game.attendees[0];
@@ -30,21 +30,23 @@ const launchGameMutation = async (args, context) => {
 
       if (!user) {
         throw new UserInputError('user not found in DB', {
-          errors: { general: 'User not found !' },
+          errors: { general: `L'utilisateur n'existe pas !` }
         });
       }
 
       if (!game) {
         throw new UserInputError('game not found in DB', {
-          errors: { general: 'Game not found !' },
+          errors: { general: `La partie n'existe pas !` }
         });
       }
 
-      const found = game.attendees.find((u) => u._id.toString() === token.idUser);
+      const found = game.attendees.find(u => u._id.toString() === token.idUser);
       if (found !== undefined) {
         return await initGame(game);
       } else {
-        throw new Error('join this game before launch');
+        throw new UserInputError('join this game before launch', {
+          errors: { general: `Vous devez d'abord rejoindre cette partie !` }
+        });
       }
     } else {
       throw new Error('logged out user');

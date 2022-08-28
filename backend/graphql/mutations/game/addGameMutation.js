@@ -16,7 +16,7 @@ const addGameMutation = async (context) => {
 
       if (!user) {
         throw new UserInputError('user not found in DB', {
-          errors: { general: 'User not found !' },
+          errors: { general: `L'utilisateur n'existe pas !` },
         });
       }
 

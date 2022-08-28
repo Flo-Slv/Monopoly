@@ -5,36 +5,33 @@ const { Schema } = mongoose;
 const resourceSchema = new Schema({
   startingMoney: {
     type: Number,
-    required: Boolean(true),
+    required: Boolean(true)
   },
   luckyCards: {
     type: [String],
-    required: Boolean(true),
+    required: Boolean(true)
   },
   communityChestCards: {
     type: [String],
-    required: Boolean(true),
+    required: Boolean(true)
   },
   nbHostels: {
     type: Number,
-    required: Boolean(true),
+    required: Boolean(true)
   },
   nbHouses: {
     type: Number,
-    required: Boolean(true),
+    required: Boolean(true)
   },
-  squares: [
-    {
-      id: String,
-      label: String,
-      type: String,
-      group: String,
-    },
-  ],
+  squares: [{
+    id: String,
+    label: String,
+    type: String,
+    group: String
+  }],
   jailCost: {
-    type: Number,
-    required: Boolean(true), // 200$
-  },
+    type: Number // 200
+  }
 });
 
 export default mongoose.models.Resource || mongoose.model('Resource', resourceSchema);
