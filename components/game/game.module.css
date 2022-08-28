@@ -8,6 +8,7 @@
   background-repeat: no-repeat;
   background-image: url('../../public/logo.png');
   background-position: center;
+  border: 5px solid #c80505;
 }
 
 .chatbox {
@@ -85,10 +86,10 @@
   justify-content: center;
   line-height: 1;
 }
-.square.property {
+/* .square.property {
   align-items: stretch;
   justify-content: stretch;
-}
+} */
 .squareAttendees {
   position: absolute;
   display: flex;
@@ -130,26 +131,30 @@
   height: 30px;
   width: 30px;
 }
-.title {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
 .title .avatar {
   position: absolute;
   bottom: -15px;
   right: 10px;
 } */
+.property .title {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 .colLeft .colorBand,
 .colRight .colorBand {
   height: 100%;
   width: 1.5vw;
+  align-self: stretch;
 }
 .colBottom .colorBand,
 .colTop .colorBand {
   height: 1.5vw;
   width: 100%;
+  align-self: stretch;
 }
 .colLeft .colorBand {
   border-left: 2px solid #000;
