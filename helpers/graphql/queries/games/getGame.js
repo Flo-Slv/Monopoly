@@ -18,7 +18,12 @@ export const GET_GAME = gql`
         label
         type
         group
-        players {
+        attendees {
+          _id
+          username
+          urlAvatar
+        }
+        prisoners {
           _id
           username
           urlAvatar

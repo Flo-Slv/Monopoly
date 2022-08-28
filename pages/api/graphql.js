@@ -54,6 +54,7 @@ const handler = cors(async (req, res) => {
         communityChestCards: COMMUNITY_CHEST_CARDS,
         nbHostels: 12,
         nbHouses: 12,
+        jailCost: 200,
       });
 
       try {

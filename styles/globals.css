@@ -1,9 +1,21 @@
+:root {
+  --board-background: #dae9d4;
+  --group0: #944828;
+  --group1: #bae4fa;
+  --group2: #d62f87;
+  --group3: #f49100;
+  --group4: #e5010e;
+  --group5: #fded01;
+  --group6: #1fa54c;
+  --group7: #0369b1;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {

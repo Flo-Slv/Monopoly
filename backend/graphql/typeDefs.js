@@ -45,7 +45,8 @@ const typeDefs = gql`
     label: String
     type: String
     group: String
-    players: [User]
+    attendees: [User]
+    prisoners: [User]
     owner: User
     nbHouses: Int
     nbHostels: Int
