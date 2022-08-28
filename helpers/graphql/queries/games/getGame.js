@@ -13,6 +13,31 @@ export const GET_GAME = gql`
       chatbox {
         text
       }
+      squares {
+        _id
+        label
+        type
+        group
+        attendees {
+          _id
+          username
+          urlAvatar
+        }
+        prisoners {
+          _id
+          username
+          urlAvatar
+        }
+        # owner {
+        #   _id
+        #   username
+        #   urlAvatar
+        # }
+        nbHouses
+        nbHostels
+        mortgaged
+        monopoly
+      }
     }
   }
 `;

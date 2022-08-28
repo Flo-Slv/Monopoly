@@ -4,7 +4,7 @@ import { UserInputError } from 'apollo-server-micro';
 import Game from '../../../db/models/Game.js';
 import User from '../../../db/models/User.js';
 
-const addGameMutation = async context => {
+const addGameMutation = async (context) => {
   const req = context.req;
 
   try {
@@ -16,7 +16,7 @@ const addGameMutation = async context => {
 
       if (!user) {
         throw new UserInputError('user not found in DB', {
-          'errors': { 'general': `L'utilisateur n'existe pas !` }
+          errors: { general: `L'utilisateur n'existe pas !` },
         });
       }
 
@@ -25,7 +25,7 @@ const addGameMutation = async context => {
         const lastGame = await Game.findOne({ _id: user.currentGame });
 
         if (lastGame != undefined) {
-          lastGame.attendees = lastGame.attendees.filter(u => u._id.toString() !== user.id);
+          lastGame.attendees = lastGame.attendees.filter((u) => u._id.toString() !== user.id);
           if (lastGame.attendees.length < 1) {
             // no player then delete game
             await Game.deleteOne({ _id: lastGame.id });
@@ -38,7 +38,7 @@ const addGameMutation = async context => {
       const newGame = new Game({
         createdAt: new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' }),
         attendees: [{ ...user }],
-        chatbox: []
+        chatbox: [],
       });
       await newGame.save();
 

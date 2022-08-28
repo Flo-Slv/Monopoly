@@ -1,12 +1,18 @@
 import { getToken } from 'next-auth/jwt';
 import { UserInputError } from 'apollo-server-micro';
+import { SQUARES } from '../../../utils/config';
 
-import Game from '../../../db/models/Game.js';
-import User from '../../../db/models/User.js';
+import Game from '../../../db/models/Game';
+import User from '../../../db/models/User';
 
 const initGame = async game => {
   game.startTime = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
+  game.squares = SQUARES;
+  game.squares[1].owner = game.attendees[0];
+  game.squares[1].attendees.push(game.attendees[0]);
+
   await game.save();
+
   return game;
 };
 
