@@ -9,6 +9,7 @@ export const GET_GAME = gql`
         _id
         username
         urlAvatar
+        color
       }
       chatbox {
         text
@@ -22,6 +23,7 @@ export const GET_GAME = gql`
           _id
           username
           urlAvatar
+          color
         }
         prisoners {
           _id
