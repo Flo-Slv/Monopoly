@@ -17,13 +17,13 @@ const SquareAttendeeListElement = ({ attendee }) => {
         ]}
         overlap="circular"
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        badgeContent=" "
         variant="dot"
       >
         <Avatar
           className={styles.avatar}
           style={{
             borderColor: attendee.color,
+            borderWidth: '0 0 2px 0',
           }}
           alt={attendee.username}
           src={attendee.urlAvatar}
