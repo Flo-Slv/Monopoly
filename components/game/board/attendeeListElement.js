@@ -2,26 +2,22 @@ import Avatar from '@mui/material/Avatar';
 import styles from '../game.module.css';
 import Badge from '@mui/material/Badge';
 import { useEffect, useState } from 'react';
-import { isPlaying, isWaiting, dotTheme } from '../../../styles/mui/game';
+import { isPlaying, isWaiting, createDotTheme } from '../../../styles/mui/game';
 
 const AttendeeListElement = ({ attendee }) => {
-  const [theme, setTheme] = useState([
-    ...dotTheme,
-    {
-      '& .MuiBadge-badge': {
-        backgroundColor: attendee.color,
-        boxShadow: `0 0 0 1px ${attendee.color}`,
-      },
-    },
-  ]);
+  const [theme, setTheme] = useState(null);
 
   useEffect(() => {
-    if (true) {
-      setTheme([...theme, isPlaying]);
+    if (!theme) {
+      setTheme([...createDotTheme(attendee.color), isPlaying]);
     } else {
-      setTheme([...theme, isWaiting]);
+      if (false) {
+        setTheme([...theme, isPlaying]);
+      } else if (false) {
+        setTheme([...theme, isWaiting]);
+      }
     }
-  }, [theme]);
+  }, [theme, attendee.color]);
 
   return (
     <div>
