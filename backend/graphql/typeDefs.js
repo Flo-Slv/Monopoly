@@ -28,6 +28,8 @@ const typeDefs = gql`
     urlAvatar: String
     hasCurrentGame: Boolean!
     currentGame: ID
+    color: String
+    money: Int
   }
 
   type Game {

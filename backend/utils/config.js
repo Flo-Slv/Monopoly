@@ -3,6 +3,8 @@ const DB_NAME = process.env.DB_NAME;
 
 const MONGODB = `mongodb+srv://FloSlv:${DB_PASSWORD}@flo.j1cmj.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
 
+const COLORS = ['red', 'pink', 'yellow', 'green', 'blue', 'white', 'black', 'cyan'];
+
 const LUCKY_CARDS = [
   'Rendez-vous rue de la Paix',
   `Avancer jusqu'à la case départ. Recevez: +200 euro`,
@@ -407,4 +409,4 @@ const SQUARES = [
   },
 ];
 
-export { MONGODB, LUCKY_CARDS, COMMUNITY_CHEST_CARDS, SQUARES };
+export { MONGODB, COLORS, LUCKY_CARDS, COMMUNITY_CHEST_CARDS, SQUARES };

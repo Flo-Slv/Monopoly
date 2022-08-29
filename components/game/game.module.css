@@ -235,3 +235,13 @@
 .group7 .colorBand {
   background-color: var(--group7);
 }
+
+.avatar {
+  border: none;
+  border-bottom: 2px solid #000;
+}
+
+.timer {
+  /* font-style: italic; */
+  /* font-size: 14px; */
+}

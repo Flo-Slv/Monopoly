@@ -13,7 +13,8 @@ const gameSchema = new Schema({
       id: String,
       username: String,
       urlAvatar: String,
-      // money: Number
+      money: Number,
+      color: String,
     },
   ],
   chatbox: [
@@ -22,6 +23,7 @@ const gameSchema = new Schema({
         id: String,
         username: String,
         urlAvatar: String,
+        color: String,
       },
       text: String,
       time: String,
@@ -33,9 +35,9 @@ const gameSchema = new Schema({
       label: { type: String },
       type: { type: String },
       group: { type: String },
-      attendees: [{ id: String, username: String, urlAvatar: String }],
-      prisoners: [{ id: String, username: String, urlAvatar: String }],
-      owner: { id: String, username: String, urlAvatar: String },
+      attendees: [{ id: String, username: String, urlAvatar: String, color: String }],
+      prisoners: [{ id: String, username: String, urlAvatar: String, color: String }],
+      owner: { id: String, username: String, urlAvatar: String, color: String },
       nbHouses: { type: Number },
       nbHostels: { type: Number },
       mortgaged: { type: Boolean },
@@ -51,4 +53,3 @@ export default mongoose.models.Game || mongoose.model('Game', gameSchema);
 // TO DO
 // card sent to jail. other special cards ???
 // jail delay
-// money : n'est pas dans user de base, ça peut poser pb ? rajouter dans model user en non requis ? à vérif
